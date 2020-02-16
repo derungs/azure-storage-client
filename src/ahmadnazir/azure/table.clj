@@ -6,7 +6,8 @@
 
 (defn config [url sas]
   {:url url
-   :sas sas})
+   :sas sas
+   :limit 25})
 
 (defn fetch [url]
   (http/get url {:accept :json}))
@@ -17,8 +18,8 @@
 
 ;; todo: extract parse-result
 
-(defn get-content [url sas entity]
-  (->> (str url "/" entity "?$top=25&" sas)
+(defn get-content [url sas limit entity]
+  (->> (str url "/" entity "?$top=" limit "&" sas)
        fetch
        :body
        parse-string
@@ -29,10 +30,10 @@
 ;; Export
 
 (defn table-list [config]
-  (get-content (config :url) (config :sas) "Tables")
+  (get-content (config :url) (config :sas) (config :limit) "Tables")
   )
 
 (defn table-content [config table-name]
-  (get-content (config :url) (config :sas) table-name)
+  (get-content (config :url) (config :sas) (config :limit) table-name)
   )
 
