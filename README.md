@@ -21,10 +21,15 @@ Run the project directly:
 The following environment variables should be set:
 
 ```
-export AZURE_COSMOSDB_URL=
-export AZURE_COSMOSDB_KEY=
-export AZURE_COSMOSDB_DATABASE=
-export AZURE_COSMOSDB_CONTAINER=
+# Cosmos DB
+export AZURE_STORAGE_COSMOSDB_URL=
+export AZURE_STORAGE_COSMOSDB_KEY=
+export AZURE_STORAGE_COSMOSDB_DATABASE=
+export AZURE_STORAGE_COSMOSDB_CONTAINER=
+
+# Table storage
+export AZURE_STORAGE_TABLE_URL=
+export AZURE_STORAGE_TABLE_SAS=
 ```
 
 Configuration is hardcoded for now (page size, etc).

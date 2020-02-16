@@ -1,8 +1,10 @@
 {:paths ["resources" "src"]
  :deps {org.clojure/clojure {:mvn/version "1.10.1"}
-        com.azure/azure-cosmos {:mvn/version "4.0.0-preview.1"}
+        ;; https://github.com/Azure/azure-sdk-for-java
+        com.azure/azure-cosmos {:mvn/version "4.0.0-preview.1"} ;; http://azure.github.io/azure-sdk-for-java/cosmos.html
         environ {:mvn/version "0.5.0"}
         cheshire {:mvn/version "5.9.0"}
+        clj-http {:mvn/version "3.10.0"}
         }
  :aliases
  {:test {:extra-paths ["test"]
