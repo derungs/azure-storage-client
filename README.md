@@ -1,42 +1,42 @@
 # cosmosdb-client
 
-FIXME: description
+Accessing cosmos db from the cli.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Not published yet. Stay tuned.
 
 ## Usage
 
-FIXME: explanation
-
 Run the project directly:
 
-    $ clj -m ahmadnazir.cosmosdb-client
+    $ clj -m ahmadnazir.cosmosdb-client 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
 
-Run the project's tests (they'll fail until you edit them):
+<!-- Run the project's tests (they'll fail until you edit them): -->
 
-    $ clj -A:test:runner
+<!--     $ clj -A:test:runner -->
 
 ## Options
 
-FIXME: listing of options this app accepts.
+The following environment variables should be set:
+
+```
+export AZURE_COSMOSDB_URL=
+export AZURE_COSMOSDB_KEY=
+export AZURE_COSMOSDB_DATABASE=
+export AZURE_COSMOSDB_CONTAINER=
+```
+
+Configuration is hardcoded for now (page size, etc).
 
 ## Examples
 
-...
+    $ clj -m ahmadnazir.cosmosdb-client 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
 
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020 Ahmad Nazir Raja
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.

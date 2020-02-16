@@ -1,5 +1,9 @@
 {:paths ["resources" "src"]
- :deps {org.clojure/clojure {:mvn/version "1.10.1"}}
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        com.azure/azure-cosmos {:mvn/version "4.0.0-preview.1"}
+        environ {:mvn/version "0.5.0"}
+        cheshire {:mvn/version "5.9.0"}
+        }
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
