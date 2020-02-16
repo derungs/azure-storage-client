@@ -1,4 +1,4 @@
-(ns ahmadnazir.cosmosdb-client
+(ns ahmadnazir.azure-storage-client
   (:import [com.azure.cosmos CosmosClientBuilder]
            [com.azure.cosmos FeedOptions])
   (:require
@@ -8,7 +8,7 @@
    )
   (:gen-class))
 
-;; (ns-unmap 'ahmadnazir.cosmosdb-client 'env)
+;; (ns-unmap 'ahmadnazir.azure-storage-client 'env)
 
 (defn client []
   "Get the client"
