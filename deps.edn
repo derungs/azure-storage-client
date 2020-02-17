@@ -6,12 +6,27 @@
         cheshire {:mvn/version "5.9.0"}
         clj-http {:mvn/version "3.10.0"}
         }
- :aliases
- {:test {:extra-paths ["test"]
-         :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
-  :runner
-  {:extra-deps {com.cognitect/test-runner
-                {:git/url "https://github.com/cognitect-labs/test-runner"
-                 :sha "76568540e7f40268ad2b646110f237a60295fa3c"}}
-   :main-opts ["-m" "cognitect.test-runner"
-               "-d" "test"]}}}
+ :aliases {
+           :test
+           {:extra-paths ["test"]
+            :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
+
+           :runner
+           {:extra-deps {com.cognitect/test-runner
+                         {:git/url "https://github.com/cognitect-labs/test-runner"
+                          :sha "76568540e7f40268ad2b646110f237a60295fa3c"}}
+            :main-opts ["-m" "cognitect.test-runner" "-d" "test"]}
+
+           :native-image
+           {:main-opts ["-m clj.native-image ahmadnazir.azure.storage.client"
+                        "--initialize-at-build-time"
+                        "--allow-incomplete-classpath"
+                        "-H:Name=app"]
+            :jvm-opts ["-Dclojure.compiler.direct-linking=true"]
+            :extra-deps {clj.native-image
+                         {:git/url "https://github.com/taylorwood/clj.native-image.git"
+                          :sha "7708e7fd4572459c81f6a6b8e44c96f41cdd92d4"}}}
+
+           }
+ }
+

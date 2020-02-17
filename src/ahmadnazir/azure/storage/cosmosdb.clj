@@ -50,3 +50,13 @@
     (->> result
          to-json
          json-prettify)))
+
+(defn exec
+  "Execute the query"
+  [container s]
+  (->> s
+       (query container)
+       (page 0)
+       (map contents)
+       )
+  )

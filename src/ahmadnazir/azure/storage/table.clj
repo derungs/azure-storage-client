@@ -23,7 +23,7 @@
        fetch
        :body
        parse-string
-       (#(do (clojure.pprint/pprint %1) %1))
+       ;; (#(do (clojure.pprint/pprint %1) %1))
        :value
        ))
 

@@ -13,21 +13,20 @@
 ;; COSMOSDB
 ;; -------------
 
-(def container
-  (->> (cosmosdb/client (env :azure-storage-cosmosdb-url) (env :azure-storage-cosmosdb-key))
-       (cosmosdb/container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container))))
+;; (defn cosmosdb-container []
+;;   (->> (cosmosdb/client (env :azure-storage-cosmosdb-url) (env :azure-storage-cosmosdb-key))
+;;        (cosmosdb/container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container))))
 
 (defn -main
   "Execute the query"
   [& args]
-  (->> args
-      first
-      (cosmosdb/query container)
-      (cosmosdb/page 0)
-      (map cosmosdb/contents)
-      (map println) dorun ;; map needs eager evaluation
-      )
-  )
+  (let [container (->> (cosmosdb/client (env :azure-storage-cosmosdb-url) (env :azure-storage-cosmosdb-key))
+                       (cosmosdb/container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container)))]
+    (->> args
+         first
+         (cosmosdb/exec container)
+         (map println) dorun ;; map is lazy
+         )))
 
 ;; (->>  "SELECT * FROM c WHERE c.partitionKey = \"b1000dd0-a811-43e1-856b-47c15cb9ee7c\""
 ;;       -main
