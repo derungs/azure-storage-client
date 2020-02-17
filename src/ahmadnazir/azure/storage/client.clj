@@ -1,9 +1,9 @@
-(ns ahmadnazir.azure-storage-client
+(ns ahmadnazir.azure.storage.client
   (:require
    ;; [environ.core :refer [env]]
    [ahmadnazir.env :refer [env]]
-   [ahmadnazir.azure.cosmosdb :as cosmosdb]
-   [ahmadnazir.azure.table :as table]
+   [ahmadnazir.azure.storage.cosmosdb :as cosmosdb]
+   [ahmadnazir.azure.storage.table :as table]
    )
   (:gen-class))
 
@@ -23,8 +23,8 @@
   (->> args
       first
       (cosmosdb/query container)
-      (page 0)
-      (map contents)
+      (cosmosdb/page 0)
+      (map cosmosdb/contents)
       (map println) dorun ;; map needs eager evaluation
       )
   )
@@ -38,13 +38,13 @@
 ;; TABLE STORAGE
 ;; -------------
 
-(def config (table/config
-             (env :azure-storage-table-url)
-             (env :azure-storage-table-sas)))
+;; (def config (table/config
+;;              (env :azure-storage-table-url)
+;;              (env :azure-storage-table-sas)))
 
-(clojure.pprint/print-table
- (table/table-list config))
+;; (clojure.pprint/print-table
+;;  (table/table-list config))
 
 
-(clojure.pprint/print-table
- (table/table-content config "GraphTaskInfo"))
+;; (clojure.pprint/print-table
+;;  (table/table-content config "GraphTaskInfo"))

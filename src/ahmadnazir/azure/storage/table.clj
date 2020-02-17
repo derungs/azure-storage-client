@@ -1,4 +1,4 @@
-(ns ahmadnazir.azure.table
+(ns ahmadnazir.azure.storage.table
   "Client for the table API"
   (:require [clj-http.client :as http]
             [cheshire.core :as json]

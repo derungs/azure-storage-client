@@ -1,4 +1,4 @@
-(ns ahmadnazir.azure.cosmosdb
+(ns ahmadnazir.azure.storage.cosmosdb
   (:require [cheshire.core :as json])
   (:import [com.azure.cosmos CosmosClientBuilder]
            [com.azure.cosmos FeedOptions])

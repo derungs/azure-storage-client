@@ -1,6 +1,6 @@
-(ns ahmadnazir.azure-storage-client-test
+(ns ahmadnazir.azure.storage.client-test
   (:require [clojure.test :refer :all]
-            [ahmadnazir.azure-storage-client :refer :all]))
+            [ahmadnazir.azure.storage.client :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
