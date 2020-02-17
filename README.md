@@ -36,7 +36,7 @@ Configuration is hardcoded for now (page size, etc).
 
 ## License
 
-Copyright © 2020 Ahmad Nazir Raja
+Copyright © 2020 Wynut
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
