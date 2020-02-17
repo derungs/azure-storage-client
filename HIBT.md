@@ -1,5 +1,5 @@
 # How I built this?
 
 ```
-clj -A:new app ahmadnazir/azure-storage-client
+clj -A:new app wynut/azure-storage-client
 ```

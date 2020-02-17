@@ -18,7 +18,7 @@
             :main-opts ["-m" "cognitect.test-runner" "-d" "test"]}
 
            :native-image
-           {:main-opts ["-m clj.native-image ahmadnazir.azure.storage.client"
+           {:main-opts ["-m clj.native-image wynut.azure.storage.client"
                         "--initialize-at-build-time"
                         "--allow-incomplete-classpath"
                         "-H:Name=app"]

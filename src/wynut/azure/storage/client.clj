@@ -1,13 +1,13 @@
-(ns ahmadnazir.azure.storage.client
+(ns wynut.azure.storage.client
   (:require
    ;; [environ.core :refer [env]]
-   [ahmadnazir.env :refer [env]]
-   [ahmadnazir.azure.storage.cosmosdb :as cosmosdb]
-   [ahmadnazir.azure.storage.table :as table]
+   [wynut.env :refer [env]]
+   [wynut.azure.storage.cosmosdb :as cosmosdb]
+   [wynut.azure.storage.table :as table]
    )
   (:gen-class))
 
-;; (ns-unmap 'ahmadnazir.azure-storage-client 'env)
+;; (ns-unmap 'wynut.azure-storage-client 'env)
 
 ;; -------------
 ;; COSMOSDB

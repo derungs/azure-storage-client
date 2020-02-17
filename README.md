@@ -10,7 +10,7 @@ Not published yet. Stay tuned.
 
 Run the project directly:
 
-    $ clj -m ahmadnazir.azure.storage.client 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+    $ clj -m wynut.azure.storage.client 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
 
 <!-- Run the project's tests (they'll fail until you edit them): -->
 
