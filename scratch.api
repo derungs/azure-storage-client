@@ -1,0 +1,14 @@
+# -*- restclient -*-
+
+:url := "http://localhost:8000"
+
+:query := (url-hexify-string "SELECT * FROM c WHERE c.partitionKey = \"b1000dd0-a811-43e1-856b-47c15cb9ee7c\"")
+
+# cosmos
+
+GET :url/api/cosmosdb?query=:query
+Accept: application/json
+
+# table
+
+GET :url/api/table?test=12l312k

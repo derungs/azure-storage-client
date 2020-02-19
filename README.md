@@ -8,9 +8,13 @@ Not published yet. Stay tuned.
 
 ## Usage
 
-Run the project directly:
+Start the server:
 
-    $ clj -m wynut.azure.storage.client 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+    $ clj -A:run 8000 dev
+
+Use the cli script to send queries:
+
+    $ ./script/cosmosdb 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
 
 <!-- Run the project's tests (they'll fail until you edit them): -->
 
@@ -18,7 +22,7 @@ Run the project directly:
 
 ## Options
 
-The following environment variables should be set:
+When running the server, the following environment variables should be set:
 
 ```
 # Cosmos DB
