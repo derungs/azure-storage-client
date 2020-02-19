@@ -5,8 +5,13 @@
         environ {:mvn/version "0.5.0"}
         cheshire {:mvn/version "5.9.0"}
         clj-http {:mvn/version "3.10.0"}
+        ring                      {:mvn/version "1.7.0-RC1"}
+        ring/ring-defaults        {:mvn/version "0.3.2"}
+        prone                     {:mvn/version "1.6.0"}
+        compojure                 {:mvn/version "1.6.1"}
         }
  :aliases {
+           :run        {:main-opts ["-m" "wynut.server"]}
            :test
            {:extra-paths ["test"]
             :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
