@@ -13,4 +13,4 @@ pom.xml.asc
 .hg/
 
 # custom files
-src/env.clj
+src/wynut/env.clj
