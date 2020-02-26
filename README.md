@@ -14,7 +14,14 @@ Start the server:
 
 Use the cli script to send queries:
 
-    $ ./script/cosmosdb 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+    $ ./script/cosmosdb 8000 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+
+Note:
+
+You need to be logged in to azure-cli in order to be able to retrieve data from Azure Storages.
+
+Run: 
+`az login`
 
 <!-- Run the project's tests (they'll fail until you edit them): -->
 
@@ -26,8 +33,9 @@ When running the server, the following environment variables should be set:
 
 ```
 # Cosmos DB
-export AZURE_STORAGE_COSMOSDB_URL=
-export AZURE_STORAGE_COSMOSDB_KEY=
+export AZURE_STORAGE_COSMOSDB_SUBSCRIPTION_ID=
+export AZURE_STORAGE_COSMOSDB_RESOURCE_GROUP=
+export AZURE_STORAGE_COSMOSDB_NAME=
 export AZURE_STORAGE_COSMOSDB_DATABASE=
 export AZURE_STORAGE_COSMOSDB_CONTAINER=
 

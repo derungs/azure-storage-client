@@ -7,24 +7,28 @@
             [compojure.route :refer [not-found]]
             [wynut.env :refer [env]]
             [wynut.azure.storage.cosmosdb :as cosmosdb]
-            ))
+            [wynut.azure.storage.azurecli :as azure]))
 
 (defn cosmosdb-container []
-  (->> (cosmosdb/client (env :azure-storage-cosmosdb-url) (env :azure-storage-cosmosdb-key))
-       (cosmosdb/container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container))))
+  (->>
+   (azure/get-cosmosdb-token
+    (env :azure-storage-cosmosdb-subscription-id)
+    (env :azure-storage-cosmosdb-resource-group)
+    (env :azure-storage-cosmosdb-name))
+   (cosmosdb/client (cosmosdb/get-cosmosdb-url (env :azure-storage-cosmosdb-name)))
+   (cosmosdb/container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container))))
 
 (def container (cosmosdb-container))
 
 (defn handle-cosmosdb-query [query]
-    (-> (cosmosdb/exec container query)
-         response
-         (content-type "application/json")
-         ))
+  (-> (cosmosdb/exec container query)
+      response
+      (content-type "application/json")))
 
 
 ;; (handle-cosmosdb-query)
 (defn handle-table-query []
-  "table storage" )
+  "table storage")
 
 (defroutes routes
   (GET "/api/cosmosdb" {params :query-params} (handle-cosmosdb-query (params "query")))

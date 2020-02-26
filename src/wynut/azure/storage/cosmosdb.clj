@@ -1,35 +1,34 @@
 (ns wynut.azure.storage.cosmosdb
-  (:require [cheshire.core :as json])
+  (:require [cheshire.core :as json]
+            [clojure.core.strint :refer [<<]])
   (:import [com.azure.cosmos CosmosClientBuilder]
-           [com.azure.cosmos FeedOptions])
-  )
+           [com.azure.cosmos FeedOptions]))
+
+(defn get-cosmosdb-url [db-name]
+  (<< "https://~{db-name}.documents.azure.com:443/"))
 
 (defn client [url key]
   "Get the client"
-  (-> (CosmosClientBuilder. )
+  (-> (CosmosClientBuilder.)
       (.setEndpoint url)
       (.setKey key)
-      (.buildClient)
-      ))
+      (.buildClient)))
 
 (defn container [database container client]
   "Get the reference to the container"
   (-> client
       (.getDatabase database)
-      (.getContainer container)
-      ))
+      (.getContainer container)))
 
 (def feed-options
   "Get the default feed options"
   (-> (FeedOptions.)
       (.maxItemCount (int 10))
-      (.setEnableCrossPartitionQuery true)
-      ))
+      (.setEnableCrossPartitionQuery true)))
 
 (defn query [container s]
   (-> container
-      (.queryItems s feed-options)
-      ))
+      (.queryItems s feed-options)))
 
 (defn page [n iterator]
   (->> iterator
@@ -57,6 +56,4 @@
   (->> s
        (query container)
        (page 0)
-       (map contents)
-       )
-  )
+       (map contents)))

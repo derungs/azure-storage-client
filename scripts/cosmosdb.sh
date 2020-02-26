@@ -1,5 +1,6 @@
 #!/bin/bash
 
-QUERY="$1"
+PORT=$1
+QUERY="$2"
 
-curl -G -H Accept\:\ application/json -XGET http\://localhost\:8000/api/cosmosdb --data-urlencode "query=$QUERY"
+curl -G -H Accept\:\ application/json -XGET http\://localhost\:$PORT/api/cosmosdb --data-urlencode "query=$QUERY"

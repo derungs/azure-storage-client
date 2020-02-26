@@ -1,17 +1,18 @@
 {:paths ["resources" "src"]
  :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        org.clojure/core.incubator {:mvn/version "0.1.4"}
         ;; https://github.com/Azure/azure-sdk-for-java
         com.azure/azure-cosmos {:mvn/version "4.0.0-preview.1"} ;; http://azure.github.io/azure-sdk-for-java/cosmos.html
+        com.microsoft.azure.cosmosdb.v2019_08_01/azure-mgmt-cosmosdb {:mvn/version "1.0.0-beta"}
+        com.microsoft.azure/azure-client-authentication {:mvn/version "1.7.2"}
         environ {:mvn/version "0.5.0"}
         cheshire {:mvn/version "5.9.0"}
         clj-http {:mvn/version "3.10.0"}
         ring                      {:mvn/version "1.7.0-RC1"}
         ring/ring-defaults        {:mvn/version "0.3.2"}
         prone                     {:mvn/version "1.6.0"}
-        compojure                 {:mvn/version "1.6.1"}
-        }
- :aliases {
-           :run        {:main-opts ["-m" "wynut.server"]}
+        compojure                 {:mvn/version "1.6.1"}}
+ :aliases {:run        {:main-opts ["-m" "wynut.server"]}
            :test
            {:extra-paths ["test"]
             :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
@@ -30,8 +31,4 @@
             :jvm-opts ["-Dclojure.compiler.direct-linking=true"]
             :extra-deps {clj.native-image
                          {:git/url "https://github.com/taylorwood/clj.native-image.git"
-                          :sha "7708e7fd4572459c81f6a6b8e44c96f41cdd92d4"}}}
-
-           }
- }
-
+                          :sha "7708e7fd4572459c81f6a6b8e44c96f41cdd92d4"}}}}}
