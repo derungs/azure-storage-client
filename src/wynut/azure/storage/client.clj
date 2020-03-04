@@ -20,8 +20,7 @@
 (defn -main
   "Execute the query"
   [& args]
-  (let [container (->> (cosmosdb/client (env :azure-storage-cosmosdb-url) (env :azure-storage-cosmosdb-key))
-                       (cosmosdb/container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container)))]
+  (let [container (cosmosdb/container env)]
     (->> args
          first
          (cosmosdb/exec container)

@@ -1,6 +1,7 @@
 (ns wynut.azure.storage.cosmosdb
   (:require [cheshire.core :as json]
-            [clojure.core.strint :refer [<<]])
+            [clojure.core.strint :refer [<<]]
+            [wynut.azure.storage.azurecli :as azure])
   (:import [com.azure.cosmos CosmosClientBuilder]
            [com.azure.cosmos FeedOptions]))
 
@@ -14,11 +15,21 @@
       (.setKey key)
       (.buildClient)))
 
-(defn container [database container client]
-  "Get the reference to the container"
-  (-> client
-      (.getDatabase database)
-      (.getContainer container)))
+(defn container
+  ([database-name container-name client]
+   "Get the reference to the container"
+   (-> client
+       (.getDatabase database-name)
+       (.getContainer container-name)))
+  ([env]
+   (->> (azure/get-cosmosdb-token (env :azure-storage-cosmosdb-subscription-id)
+                                  (env :azure-storage-cosmosdb-resource-group)
+                                  (env :azure-storage-cosmosdb-name))
+        (client (get-cosmosdb-url (env :azure-storage-cosmosdb-name)))
+        (container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container)))
+   ))
+
+(mytest "lskdjfaks ")
 
 (def feed-options
   "Get the default feed options"
