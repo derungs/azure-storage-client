@@ -1,7 +1,7 @@
 (ns wynut.azure.storage.client
   (:require
-   ;; [environ.core :refer [env]]
-   [wynut.env :refer [env]]
+   [environ.core :refer [env]]
+   ;; [wynut.env :refer [env]]
    [wynut.azure.storage.cosmosdb :as cosmosdb]
    [wynut.azure.storage.table :as table]
    )
