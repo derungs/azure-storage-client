@@ -1,5 +1,7 @@
 # azure-storage-client
 
+[![Build Status](https://travis-ci.org/wynut/azure-storage-client.svg?branch=master)](https://travis-ci.org/wynut/azure-storage-client)
+
 Accessing Azure storage from the cli.
 
 ## Installation
