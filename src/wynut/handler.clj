@@ -5,7 +5,8 @@
             [prone.middleware :refer [wrap-exceptions]]
             [compojure.core :refer [defroutes GET]]
             [compojure.route :refer [not-found]]
-            [wynut.env :refer [env]]
+            [environ.core :refer [env]]
+            ;; [wynut.env :refer [env]]
             [wynut.azure.storage.cosmosdb :as cosmosdb]))
 
 (def container (cosmosdb/container env))
