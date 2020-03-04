@@ -11,7 +11,10 @@
         ring                      {:mvn/version "1.7.0-RC1"}
         ring/ring-defaults        {:mvn/version "0.3.2"}
         prone                     {:mvn/version "1.6.0"}
-        compojure                 {:mvn/version "1.6.1"}}
+        compojure                 {:mvn/version "1.6.1"}
+        instaparse                {:mvn/version "1.4.10"}
+        org.clojure/core.match    {:mvn/version "0.3.0-alpha5"}}
+
  :aliases {:run        {:main-opts ["-m" "wynut.server"]}
            :test
            {:extra-paths ["test"]

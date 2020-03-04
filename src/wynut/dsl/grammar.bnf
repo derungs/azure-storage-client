@@ -1,0 +1,9 @@
+EXPR := NUMBER <ws*> OP <ws*> NUMBER
+
+OP := ADD | SUB
+
+ADD :=  "+"
+SUB :=  "-"
+NUMBER :=  #"[0-9]+"
+
+ws := #'\s+'   (* whitespace *)
