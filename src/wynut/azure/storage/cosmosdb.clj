@@ -29,8 +29,6 @@
         (container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container)))
    ))
 
-(mytest "lskdjfaks ")
-
 (def feed-options
   "Get the default feed options"
   (-> (FeedOptions.)

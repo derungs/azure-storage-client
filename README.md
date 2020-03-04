@@ -23,9 +23,9 @@ You need to be logged in to azure-cli in order to be able to retrieve data from 
 Run: 
 `az login`
 
-<!-- Run the project's tests (they'll fail until you edit them): -->
+## Tests
 
-<!--     $ clj -A:test:runner -->
+    $ clj -A:test:runner
 
 ## Options
 
