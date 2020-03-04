@@ -6,4 +6,4 @@ TABLE := string
 WHERE := <"where"> <ws+> string <ws*> <"=="> <ws*> string
 
 string := #'[A-Za-z0-9]+'
-ws := #'\s+'
+ws     := #'\s+'
