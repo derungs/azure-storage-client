@@ -1,9 +1,9 @@
-EXPR := NUMBER <ws*> OP <ws*> NUMBER
+EXPRS := EXPR <ws*> (<"|"> <ws*> EXPR <ws*>)*
 
-OP := ADD | SUB
+EXPR := TABLE | WHERE
 
-ADD :=  "+"
-SUB :=  "-"
-NUMBER :=  #"[0-9]+"
+TABLE := string
+WHERE := <"where"> <ws+> string <ws*> <"=="> <ws*> string
 
-ws := #'\s+'   (* whitespace *)
+string := #'[A-Za-z0-9]+'
+ws := #'\s+'
