@@ -1,2 +1,5 @@
-language: clojure
-script: clj -A:test:runner
+services:
+  - docker
+
+before_install:
+- docker run clojure:openjdk-14-tools-deps-alpine /bin/sh -c "clojure -A:test:runner"
