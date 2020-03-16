@@ -10,13 +10,14 @@ Not published yet. Stay tuned.
 
 ## Usage
 
-Start the server:
+Start the server (after exporting the environment variables):
 
     $ clj -A:run 8000 dev
 
 Use the cli script to send queries:
 
-    $ ./script/cosmosdb 8000 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+    $ ./script/cosmosdb 8000 sql 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+    $ ./script/cosmosdb 8000 kql 'c | partitionKey == "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
 
 Note:
 

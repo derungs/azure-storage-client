@@ -7,10 +7,10 @@
 (deftest test-create-query
   (testing "Create a query for cosmos db from the parse tree"
     (is (=
-         (->> (str "c | where partitionKey == \"abc\"" )
+         (->> (str "c | where partitionKey = \"abc\"" )
               dsl/parse
               sut/evaluate
               )
-         "SELECT * FROM c WHERE c.partitionKey == \"abc\""
+         "SELECT * FROM c WHERE c.partitionKey = \"abc\""
          ))))
 
