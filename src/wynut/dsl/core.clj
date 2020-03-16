@@ -1,8 +1,6 @@
 (ns wynut.dsl.core
   (:require
-   [instaparse.core :as insta]
-   [clojure.core.match :refer [match]]))
-
+   [instaparse.core :as insta]))
 
 (def parse (->> (System/getProperty "user.dir")
                 (format "%s/src/wynut/dsl/grammar.bnf" )
@@ -13,4 +11,5 @@
 (defn evaluate
   "Convert parse tree to abstract syntax tree"
   [parsed]
-  nil)
+  (throw (Exception. "Generic evaluation of parse tree is not available. Implementation should be specific to the different storage modules.")))
+
