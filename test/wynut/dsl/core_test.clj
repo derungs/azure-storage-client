@@ -21,7 +21,7 @@ to:        SELECT * FROM c WHERE c.partitionKey = 'b1000dd0-a811-43e1-856b-47c15
           [:EXPR [:WHERE [:keyword "partitionKey"] [:string "abc"]]]]))))
 
 
-(deftest parse-escaped-string
+(deftest test-parse-escaped-string
   (testing "Escaped string"
     (is (=
          (sut/parse (str "c | where partitionKey == " (stringify "ab\"c")) )
