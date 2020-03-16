@@ -8,5 +8,4 @@ WHERE := <"where"> <ws+> keyword <ws*> <"=="> <ws*> string
 keyword := #'[A-Za-z0-9]+'
 ws      := #'\s+'
 
-string         := <'"'> (#'[^"\\]+' | char)* <'"'>
-char := #'\\.'
+string  := <'"'> (#'[^"\\]+' | #'\\.')* <'"'>
