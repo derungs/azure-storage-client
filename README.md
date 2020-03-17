@@ -17,7 +17,7 @@ Start the server (after exporting the environment variables):
 Use the cli script to send queries:
 
     $ ./script/cosmosdb 8000 sql 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
-    $ ./script/cosmosdb 8000 kql 'c | partitionKey == "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+    $ ./script/cosmosdb 8000 kql 'c | where partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
 
 Note:
 

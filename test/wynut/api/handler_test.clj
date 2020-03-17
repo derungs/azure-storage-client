@@ -1,5 +1,5 @@
-(ns wynut.handler-test
-  (:require [wynut.handler :as sut]
+(ns wynut.api.handler-test
+  (:require [wynut.api.handler :as sut]
             [clojure.test :refer [deftest testing is]]
             ))
 
