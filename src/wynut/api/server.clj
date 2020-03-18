@@ -1,6 +1,6 @@
-(ns wynut.server
+(ns wynut.api.server
   (:require [ring.adapter.jetty :refer [run-jetty]]
-            [wynut.handler :refer [development-app production-app]])
+            [wynut.api.routes :refer [development-app production-app]])
   (:gen-class))
 
 (defonce server (atom nil))

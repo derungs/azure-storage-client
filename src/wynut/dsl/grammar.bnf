@@ -3,7 +3,7 @@ EXPRS := EXPR <ws*> (<"|"> <ws*> EXPR <ws*>)*
 EXPR := TABLE | WHERE
 
 TABLE := keyword
-WHERE := <"where"> <ws+> keyword <ws*> <"=="> <ws*> string
+WHERE := <"where"> <ws+> keyword <ws*> <"="> <ws*> string
 
 keyword := #'[A-Za-z0-9]+'
 ws      := #'\s+'
