@@ -3,8 +3,7 @@
    [environ.core :refer [env]]
    ;; [wynut.env :refer [env]]
    [wynut.azure.storage.cosmosdb :as cosmosdb]
-   [wynut.azure.storage.table :as table]
-   )
+   [wynut.azure.storage.table :as table])
   (:gen-class))
 
 ;; (ns-unmap 'wynut.azure-storage-client 'env)

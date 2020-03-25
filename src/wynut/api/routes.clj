@@ -8,10 +8,11 @@
             [environ.core :refer [env]]
             ;; [wynut.env :refer [env]]
             [wynut.azure.storage.cosmosdb :as cosmosdb]
-            [wynut.api.handler :as handler]
-            ))
+            [wynut.api.handler :as handler]))
 
 ;; TODO move to wynut.api.server namespace
+
+
 (def container (cosmosdb/container env))
 
 (defroutes routes

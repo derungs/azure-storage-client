@@ -26,8 +26,7 @@
                                   (env :azure-storage-cosmosdb-resource-group)
                                   (env :azure-storage-cosmosdb-name))
         (client (get-cosmosdb-url (env :azure-storage-cosmosdb-name)))
-        (container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container)))
-   ))
+        (container (env :azure-storage-cosmosdb-database) (env :azure-storage-cosmosdb-container)))))
 
 (def feed-options
   "Get the default feed options"
@@ -46,7 +45,6 @@
        .getResults
        ;; .size
        ))
-
 
 (defn json-prettify [x]
   (-> x
