@@ -4,6 +4,7 @@ services:
   - docker
 
 before_install:
+- ./scripts/format.sh check
   # 'wynut/clojure:openjdk-14-tools-deps-alpine' is exactly
   # 'clojure:openjdk-14-tools-deps-alpine' except that all the dependencies
   # required for running the tests are preloaded
