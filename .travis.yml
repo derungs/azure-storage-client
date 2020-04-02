@@ -7,4 +7,5 @@ before_install:
   # 'wynut/clojure:openjdk-14-tools-deps-alpine' is exactly
   # 'clojure:openjdk-14-tools-deps-alpine' except that all the dependencies
   # required for running the tests are preloaded
+- docker run -v `pwd`:`pwd` -w `pwd` wynut/clojure:openjdk-14-tools-deps-alpine /bin/sh -c "./scripts/format.sh check"
 - docker run -v `pwd`:`pwd` -w `pwd` wynut/clojure:openjdk-14-tools-deps-alpine /bin/sh -c "clojure -A:test:runner"
