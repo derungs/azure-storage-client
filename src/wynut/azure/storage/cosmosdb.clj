@@ -1,5 +1,6 @@
 (ns wynut.azure.storage.cosmosdb
   (:require [cheshire.core :as json]
+            [clojure.string :as s]
             [clojure.core.strint :refer [<<]]
             [wynut.azure.storage.azurecli :as azure])
   (:import [com.azure.cosmos CosmosClientBuilder]
@@ -31,7 +32,7 @@
 (def feed-options
   "Get the default feed options"
   (-> (FeedOptions.)
-      (.maxItemCount (int 10))
+      (.maxItemCount (int 15))
       (.setEnableCrossPartitionQuery true)))
 
 (defn query [container s]
@@ -60,7 +61,10 @@
 (defn exec
   "Execute the query"
   [container s]
-  (->> s
-       (query container)
-       (page 0)
-       (map contents)))
+  (str "["
+       (->> s
+            (query container)
+            (page 0)
+            (map contents)
+            (s/join ","))
+       "]"))
