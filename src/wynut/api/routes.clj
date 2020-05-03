@@ -12,11 +12,11 @@
 
 ;; TODO move to wynut.api.server namespace
 
-
-(def container (cosmosdb/container env))
+(defn create-container [] (cosmosdb/container env))
+(def container (memoize create-container))
 
 (defroutes routes
-  (GET "/api/cosmosdb" {params :query-params} (handler/cosmosdb-evaluate container (params "query") (params "type")))
+  (GET "/api/cosmosdb" {params :query-params} (handler/cosmosdb-evaluate (container) (params "query") (params "type")))
   ;; (GET "/api/table" {x :query-params} (str x))
   (not-found "Not Found"))
 
