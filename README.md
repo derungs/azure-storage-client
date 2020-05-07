@@ -10,12 +10,13 @@ Accessing Azure storage from the cli.
 
 You need to be logged in to azure-cli in order to be able to retrieve data from Azure Storages.
 
-Run:
-`az login`
+    az login
 
 ### Environment variables
 
 When running the server, the following environment variables should be set:
+
+Bash:
 
 ```
 export AZURE_STORAGE_COSMOSDB_SUBSCRIPTION_ID=
@@ -25,38 +26,34 @@ export AZURE_STORAGE_COSMOSDB_DATABASE=
 export AZURE_STORAGE_COSMOSDB_CONTAINER=
 ```
 
+Powershell:
+
+```
+$env:AZURE_STORAGE_COSMOSDB_SUBSCRIPTION_ID = ""
+$env:AZURE_STORAGE_COSMOSDB_RESOURCE_GROUP = ""
+$env:AZURE_STORAGE_COSMOSDB_NAME = ""
+$env:AZURE_STORAGE_COSMOSDB_DATABASE = ""
+$env:AZURE_STORAGE_COSMOSDB_CONTAINER = ""
+
+```
+
 ### Run the Server
 
-Start the server (after exporting the environment variables):
-
-    $ clj -A:run 8000 dev
+    clj -A:run 8000 dev
 
 ## Usage
 
-Once the server is running, use the cli script to send queries:
+Bash:
 
-    $ ./script/cosmosdb.sh 8000 sql 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+    ./scripts/cosmosdb.sh 8000 sql 'SELECT * FROM c WHERE c.partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
+
+Powershell:
+
+    .\scripts\cosmosdb.ps1 -port 8000 -type sql -query 'select * from c where c.partitionKey = "645424ea-4d19-40d0-8661-3e7eacb44ca4"' | Select-Object -Property * |  ConvertTo-Json
 
 ## Tests
 
-    $ clj -A:test:runner
-
-## Work in Progress
-
-### KQL syntax
-
-Also in the works, it will be possible to use a KQL like syntax instead of SQL. At the moment, just a simple example as follows can be tried out:
-
-    $ ./script/cosmosdb.sh 8000 kql 'c | where partitionKey = "b1000dd0-a811-43e1-856b-47c15cb9ee7c"'
-
-### Support for Azure Table Storage
-
-Following environment variables will be needed:
-
-```
-export AZURE_STORAGE_TABLE_URL=
-export AZURE_STORAGE_TABLE_SAS=
-```
+    clj -A:test:runner
 
 ## License
 
